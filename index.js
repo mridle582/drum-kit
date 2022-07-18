@@ -16,8 +16,8 @@ document.addEventListener("keydown", function(event)  {
 
 
 // Used to bind user interaction to the mp3's.
-function playSound(char) {
-    switch (char) {
+function playSound(key) {
+    switch (key) {
         case 'w': 
             new Audio("sounds/tom-1.mp3").play();
         break;
