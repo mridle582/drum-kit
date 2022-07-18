@@ -4,13 +4,14 @@ var drumButtons = document.querySelectorAll(".drum");
 for (let i = 0; i < drumButtons.length; i++) {
     drumButtons[i].addEventListener("click", function() {
         playSound(this.innerHTML); 
-        
+        buttonAnimation(this.innerHTML);
     });
 }
 
 // For keyboard actions
 document.addEventListener("keydown", function(event)  {
     playSound(event.key);
+    buttonAnimation(event.key);
 });
 
 
@@ -48,4 +49,13 @@ function playSound(char) {
         default:
             alert("Wrong Key was pressed: " + char);
     }
+}
+
+// Used to grey out the press 'button' to indicate it being pressed
+function buttonAnimation(key) {
+    var activeButton = document.querySelector("." + key);
+    activeButton.classList.add("pressed");
+    setTimeout(function() { 
+        activeButton.classList.remove("pressed") 
+    }, 100);
 }
